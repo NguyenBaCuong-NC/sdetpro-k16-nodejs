@@ -1,48 +1,61 @@
-function sortMinToMax (inArr){
+function sortMinToMax (inArray){
     let number;
-    for (let i = 0; i < inArr.length-1; i++) {
-        for (let j = i + 1; j < inArr.length; j++) {
-            if (inArr[i] > inArr[j]) {
-                number = inArr[i];
-                inArr[i] = inArr[j];
-                inArr[j] = number;
+    for (let i = 0; i < inArray.length-1; i++) {
+        for (let j = i + 1; j < inArray.length; j++) {
+            if (inArray[i] > inArray[j]) {
+                number = inArray[i];
+                inArray[i] = inArray[j];
+                inArray[j] = number;
             }
         }
     }
-    return inArr;
+    return inArray;
 }
-function countEvenNumber (inArr){
+
+
+function countEvenNumber (inArray){
     let countEvenN = 0;
-    for (let index = 0; index < inArr.length; index++) {
-        if (inArr[index] % 2 === 0) {
+    for (let index = 0; index < inArray.length; index++) {
+        if (inArray[index] % 2 === 0) {
         countEvenN++;
         }
     }
     return countEvenN;
 }
-function countOddNumber (inArr){
+
+
+function countOddNumber (inArray){
     let countOddN = 0;
-    for (let index = 0; index < inArr.length; index++) {
-        if (inArr[index] % 2 === 1) {
+    for (let index = 0; index < inArray.length; index++) {
+        if (inArray[index] % 2 === 1) {
         countOddN++;
         }
     }
     return countOddN;
 }
 
-function merge2SortedArrInto1SortedArr (Arr01, Arr02){
-    let outArr = [];
-    for (let i = 0; i < inArr01.length;) {
-        for (let j = 0; j < inArr02.length;) {
-            if (inArr01[i] <= inArr02[j]) {
-            outArr.push(inArr01[i]);
+
+function merge2SortedArrayInto1SortedArray (Array01, Array02){
+    let outArray = [];
+    let i = 0;
+    let j = 0;
+    while (i< inArray01.length && j < inArray02.length) {
+            if (inArray01[i] <= inArray02[j]) {
+            outArray.push(inArray01[i]);
             i++;
             } else {
-            outArr.push(inArr02[j]);
+            outArray.push(inArray02[j]);
             j++;
             } 
         }   
-    }
-    return outArr;
+   for (;i < inArray01.length; i++) {
+        outArray.push(inArray01[i]);
+   }
+   for (;j < inArray02.length; j++) {
+        outArray.push(inArray02[j]);
+}  
+    return outArray;
 }
-module.exports = {sortMinToMax, countEvenNumber, countOddNumber, merge2SortedArrInto1SortedArr};
+
+
+module.exports = {sortMinToMax, countEvenNumber, countOddNumber, merge2SortedArrayInto1SortedArray};

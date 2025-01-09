@@ -1,6 +1,6 @@
 const { sortMinToMax } = require('../../ultil/FunctionHandler');
-let inArr = [56, 25, 1, 3, 5];
-let outArr = sortMinToMax(inArr);
-console.log(outArr);
+let inArray = [56, 25, 1, 3, 5];
+let outArray = sortMinToMax(inArray);
+console.log('Sorted Array: ', outArray);
  
 
