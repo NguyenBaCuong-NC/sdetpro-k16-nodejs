@@ -1,6 +1,6 @@
 let inArr = [12, 34, 1, 16, 28];
 let outArr = sortMinToMax (inArr);
-console.log(outArr);
+console.log(`Sorted Array: ${outArr}`);
 
 function sortMinToMax (inArr){
 let number;
