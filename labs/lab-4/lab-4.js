@@ -9,14 +9,16 @@ const accountBank1 = {
 
 const accountBank2 = JSON.parse(JSON.stringify(accountBank1));
 accountBank2.accountNumber = '9999';
+accountBank2.accountName = "Ti";
 accountBank2.balance = 20000;
 
 let userAccountNumber = getUserAccountNumber();
+
 while (userAccountNumber !== accountBank1.accountNumber && userAccountNumber !== accountBank2.accountNumber) {
     console.log(`You entered the wrong account number`);
-
     userAccountNumber = getUserAccountNumber();
 }
+
 const userBank = findAccountNumber([accountBank1, accountBank2]);
 const { accountName, balance } = userBank;
 let isStillFindAccount = true;
