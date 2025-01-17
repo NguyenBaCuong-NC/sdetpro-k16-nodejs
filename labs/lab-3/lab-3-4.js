@@ -23,6 +23,7 @@ function merge2SortedArrayInto1SortedArray (Array01, Array02){
         outArray.push(inArray02[j]);
 }  
     return outArray;
+    
 }
 
 
