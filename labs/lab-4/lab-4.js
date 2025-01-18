@@ -7,11 +7,12 @@ const accountBank1 = {
     balance: 10000
 }
 
+
 const accountBank2 = JSON.parse(JSON.stringify(accountBank1));
 accountBank2.accountNumber = '9999';
 accountBank2.accountName = "Ti";
 accountBank2.balance = 20000;
-
+console.log(accountBank2.accountNumber);
 let userAccountNumber = getUserAccountNumber();
 
 while (userAccountNumber !== accountBank1.accountNumber && userAccountNumber !== accountBank2.accountNumber) {
@@ -67,9 +68,9 @@ function printBankingApplication() {
 
 function findAccountNumber(accountbanks) {
     let currentAccountBank = accountbanks[0];
-    let curentAccountNumber = currentAccountBank.accountNumber;
 
     for (const accountbank of accountbanks) {
+        let curentAccountNumber = accountbank.accountNumber;
         if (userAccountNumber === curentAccountNumber) {
             currentAccountBank = accountbank;
         }
