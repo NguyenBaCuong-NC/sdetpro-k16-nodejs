@@ -7,54 +7,55 @@ const accountBank1 = {
     balance: 10000
 }
 
-
 const accountBank2 = JSON.parse(JSON.stringify(accountBank1));
 accountBank2.accountNumber = '9999';
 accountBank2.accountName = "Ti";
 accountBank2.balance = 20000;
-console.log(accountBank2.accountNumber);
-let userAccountNumber = getUserAccountNumber();
-
-while (userAccountNumber !== accountBank1.accountNumber && userAccountNumber !== accountBank2.accountNumber) {
-    console.log(`You entered the wrong account number`);
-    userAccountNumber = getUserAccountNumber();
-}
-
-const userBank = findAccountNumber([accountBank1, accountBank2]);
-const { accountName, balance } = userBank;
 let isStillFindAccount = true;
+
 while (isStillFindAccount) {
     printBankingApplication();
     let userOption = getUserOption();
-
     if (userOption === 0) {
         isStillFindAccount = false;
-    } else if (userOption === 1) {
-        console.log(`Account Name: ${accountName} and Balance: ${balance}`);
-    } else if (userOption === 2) {
-        let theMoneyToWithdraw = getUserTheMoneyToWithdraw();
-        if (theMoneyToWithdraw > balance) {
-            console.log(`Your account balance is insufficient`);
+    } else if ((userOption === 1) || (userOption === 2)) {
+        let userAccountNumber = getUserAccountNumber();
+        if (isTrueAccountNumber(userAccountNumber)) {
+            const userBank = findAccountNumber([accountBank1, accountBank2], userAccountNumber);
+            const { accountName, balance } = userBank;
+            if (userOption === 1) {
+                console.log(`Account Name: ${accountName} and Balance: ${balance}`);
+            } else {
+                let theMoneyToWithdraw = getUserTheMoneyToWithdraw();
+                if (theMoneyToWithdraw > balance || isNaN(theMoneyToWithdraw) || theMoneyToWithdraw <= 0) {
+                    console.log(`You entered the wrong money to withdraw`);
 
+                } else {
+                    console.log(`balance: ${balance - theMoneyToWithdraw}`);
+                }
+            }
         } else {
-            console.log(`balance: ${balance - theMoneyToWithdraw}`);
+            console.log(`You entered the wrong account number`);
         }
     } else {
         console.log(`You entered the wrong option`);
-
     }
+}
+
+function getUserOption() {
+    return Number(readline.question('Please input your option: '));
 }
 
 function getUserAccountNumber() {
     return String(readline.question('Please input your account number: '));
 }
 
-function getUserTheMoneyToWithdraw() {
-    return Number(readline.question('Please input the money you want to withdraw: '));
+function isTrueAccountNumber(String) {
+    return String === accountBank1.accountNumber || String === accountBank2.accountNumber;
 }
 
-function getUserOption() {
-    return Number(readline.question('Please input your option: '));
+function getUserTheMoneyToWithdraw() {
+    return Number(readline.question('Please input the money you want to withdraw: '));
 }
 
 function printBankingApplication() {
@@ -66,18 +67,13 @@ function printBankingApplication() {
            `);
 }
 
-function findAccountNumber(accountbanks) {
-    let currentAccountBank = accountbanks[0];
-
+function findAccountNumber(accountbanks, number) {
     for (const accountbank of accountbanks) {
-        let curentAccountNumber = accountbank.accountNumber;
-        if (userAccountNumber === curentAccountNumber) {
-            currentAccountBank = accountbank;
+        if (number === accountbank.accountNumber) {
+            return {
+                accountName: accountbank.accountName,
+                balance: accountbank.balance,
+            }
         }
     }
-    return {
-        accountName: currentAccountBank.accountName,
-        balance: currentAccountBank.balance,
-    }
 }
-
