@@ -5,12 +5,13 @@ const accountBank1 = {
     accountName: "Teo",
     routingNumber: '1234',
     balance: 10000
-}
+};
 
 const accountBank2 = JSON.parse(JSON.stringify(accountBank1));
 accountBank2.accountNumber = '9999';
 accountBank2.accountName = "Ti";
 accountBank2.balance = 20000;
+
 let isStillFindAccount = true;
 
 while (isStillFindAccount) {
@@ -67,9 +68,9 @@ function printBankingApplication() {
            `);
 }
 
-function findAccountNumber(accountbanks, number) {
+function findAccountNumber(accountbanks, string) {
     for (const accountbank of accountbanks) {
-        if (number === accountbank.accountNumber) {
+        if (string === accountbank.accountNumber) {
             return {
                 accountName: accountbank.accountName,
                 balance: accountbank.balance,
