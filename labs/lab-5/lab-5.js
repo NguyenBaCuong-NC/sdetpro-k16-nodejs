@@ -1,34 +1,25 @@
 const readline = require('readline-sync');
 let givenStr = readline.question("Please input your sentence: ")
-let individualWord = givenStr.replace(/[^a-z & ^0-9 & ^" "]/gi, "").split(" ");
+let individualWord = givenStr.replace(/\s+/g, ' ').replace(/[^a-z & ^0-9]/gi, "").split(" ");
+
 console.log(individualWord);
-groupWord(individualWord);
+let groupWWords = groupWord(individualWord);
+console.log(groupWWords);
 
 
 function groupWord(array) {
-    for (let firstIndex = 0; firstIndex < array.length; firstIndex++) {
-        let firstWord = array[firstIndex];
-        let countWord = 1;
-        let delIndex = -1;
-        for (let secondIndex = 0; secondIndex < array.length; secondIndex++) {
-            if (secondIndex !== firstIndex) {
-                let secondWord = array[secondIndex];
-                if (firstWord === secondWord) {
-                    if (firstIndex > secondIndex) {
-                        delIndex = array.length;
-                    } else {
-                        countWord++;
-                    }
-                }
-            }
-        }
-        if (firstIndex > delIndex) {
-            console.log(`${firstWord}: ${countWord}`);
+    let obj = {};
+    for (let index = 0; index < array.length; index++) {
+        let currentWord = array[index];
+        if (obj[currentWord] === undefined) {
+            obj[currentWord] = 1;
         } else {
-            continue;
+            obj[currentWord]++;
         }
     }
+    return obj;
 }
+
 
 
 
