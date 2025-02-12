@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
 let givenStr = readline.question("Please input your sentence: ")
-let individualWord = givenStr.replace(/[^a-z & ^0-9 & ^" "]/gi, "").split(" ");
+let individualWord = givenStr.replace(/\s+/g, ' ').replace(/[^a-z & ^0-9]/gi, "").split(" ");
 console.log(individualWord);
 groupWord(individualWord);
 
