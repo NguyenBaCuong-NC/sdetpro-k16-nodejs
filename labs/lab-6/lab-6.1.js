@@ -75,8 +75,9 @@ function findRelatedPosts(arrayOfPosts) {
             console.log(post);
             notFound = false;
         }
-        if (notFound) {
-            console.log("Post not found");
-        }
+    }
+    if (notFound) {
+        console.log("Post not found");
     }
 }
+
