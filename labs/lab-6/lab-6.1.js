@@ -16,7 +16,7 @@ fetch(posts)
                     findPostContent(arrayOfPosts);
                     break;
                 case 2:
-                    findRelatedPosts(arrayOfPosts);
+                    findAllRelatedPosts(arrayOfPosts);
                     break;
                 default:
                     console.log("Wrong option");
@@ -67,7 +67,7 @@ function findPostContent(arrayOfPosts) {
     }
 }
 
-function findRelatedPosts(arrayOfPosts) {
+function findAllRelatedPosts(arrayOfPosts) {
     let userID = getUserID();
     let notFound = true;
     for (const post of arrayOfPosts) {
