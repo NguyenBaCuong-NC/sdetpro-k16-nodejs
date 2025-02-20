@@ -3,21 +3,21 @@ let givenStr = readline.question("Please input your sentence: ")
 let individualWord = givenStr.replace(/\s+/g, ' ').replace(/[^a-z & ^0-9]/gi, "").split(" ");
 
 console.log(individualWord);
-let groupWWords = groupWord(individualWord);
-console.log(groupWWords);
+let groupWWord = groupWordFromString(individualWord);
+console.log(groupWWord);
 
 
-function groupWord(array) {
-    let obj = {};
+function groupWordFromString(array) {
+    let returnedObj = {};
     for (let index = 0; index < array.length; index++) {
         let currentWord = array[index];
-        if (obj[currentWord] === undefined) {
-            obj[currentWord] = 1;
+        if (returnedObj[currentWord]) {
+            returnedObj[currentWord]++;
         } else {
-            obj[currentWord]++;
+            returnedObj[currentWord] = 1;
         }
     }
-    return obj;
+    return returnedObj;
 }
 
 
