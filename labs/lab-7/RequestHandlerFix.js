@@ -8,18 +8,18 @@ class RequestHandlerFix {
 
     async getTargetPost(targetUserId, postId) {
         // Construct the returned data as a Post data model from class Post
-        let allPosts = await this._getAllPosts(targetUserId);
+        const allPosts = await this._getAllPosts(targetUserId);
         if (allPosts.length === 0) {
             return undefined;
         } else {
-            let targetPostContent = allPosts.find(function (post) {
+            const targetPost = allPosts.find(function (post) {
                 return post.id === postId;
             })
-            if (targetPostContent) {
-                const { userId, id, title, body } = targetPostContent;
-                return new Post(userId, id, title, body);
-            } else {
+            if (!targetPost) {
                 return {};
+            } else {
+                const { userId, id, title, body } = targetPost;
+                return new Post(userId, id, title, body);
             };
         }
     }

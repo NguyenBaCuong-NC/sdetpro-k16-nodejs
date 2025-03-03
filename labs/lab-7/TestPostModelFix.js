@@ -11,7 +11,7 @@ lab7();
 async function lab7() {
     //Init controllers
     const requestHandler = new RequestHandlerFix(baseUrl);
-    const user = new Post(2, 22);
+    const user = new Post(1, 3);
     const userId = user.userId;
     const id = user.id;
     const post = await requestHandler.getTargetPost(userId, id);
@@ -19,16 +19,16 @@ async function lab7() {
 
     // Print target post content
     if (post === undefined) {
-        console.log(`User with id ${userId} is not found!`);
+        console.log(`There is no post for user with id: ${userId}!`);
     } else if (post._userId) {
         _printPostContent(post);
     } else {
-        console.log(`The post with post id ${id} is not found!`);
+        console.log(`The post with post id ${id} does not exist for the user with id ${userId}!`);
     }
 
     // Print all posts content
     if (allPosts.length === 0) {
-        console.log(`User with id ${userId} is not found!`);
+        console.log(`There is no post for user with id: ${userId}!`);
     } else {
         console.log('All posts content: ');
         for (const post of allPosts) {
