@@ -13,5 +13,6 @@ class Person {
     }
 }
 
-let teo = new Person("Teo", 18);
-console.log(this.name);
+let teo = new Person();
+// console.log(this.name);
+console.log(teo);

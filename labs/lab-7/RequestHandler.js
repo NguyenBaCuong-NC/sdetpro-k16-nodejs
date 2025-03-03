@@ -12,7 +12,7 @@ class RequestHandler {
             if (targetPostContent) {
                 return targetPostContent;
             } else {
-                return [];
+                return {};
             };
         }
     }
