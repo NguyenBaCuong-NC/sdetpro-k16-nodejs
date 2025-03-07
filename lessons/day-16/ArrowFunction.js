@@ -25,13 +25,20 @@ const arrowFunction4 = (a, b) => {
 // Type: Arrow Function with object return
 const arrowFunction5 = (a, b) => ({ a, b });
 
-// Lexical binding: lỗi this.name ===  undefined
+// Lexical binding: lỗi this.name ===  undefined => chuyển sang arrow function ko bị lỗi
 const person = {
     name: 'John',
     age: 30,
     sayHello: function () {
         setTimeout(function () {
             console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-        })
+        }, 2 * 1000);
     }
 }
+person.sayHello();
+
+const array = [1, 2, 3, 4, 5];
+const oddNumbers = array.filter(num => num % 2 === 0);
+console.log(oddNumbers);
+
+
