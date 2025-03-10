@@ -20,7 +20,7 @@ async function lab7() {
     // Print target post content
     if (post === undefined) {
         console.log(`There is no post for user with id: ${userId}!`);
-    } else if (post._userId) {
+    } else if (post.userId) {
         _printPostContent(post);
     } else {
         console.log(`The post with post id ${id} does not exist for the user with id ${userId}!`);
