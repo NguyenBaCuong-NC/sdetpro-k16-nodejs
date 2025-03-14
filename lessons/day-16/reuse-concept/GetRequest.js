@@ -3,6 +3,15 @@
 const Request = require('./Request');
 class GetRequest extends Request {
 
+    //class varible
+    static id = 1;
+
+    constructor(url, method = 'GET') {
+        super();
+        this._url = url;
+        super.setMethod(method);
+    }
+
     setMethod() {
         super.setMethod('Get');
     }
