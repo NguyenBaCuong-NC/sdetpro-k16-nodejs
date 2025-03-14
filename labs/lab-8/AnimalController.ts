@@ -2,9 +2,9 @@ import Animal from './Animal';
 
 export default class AnimalController {
 
-    static getAnimalMaxSpeed(animalList: Animal[]): string[] {
+    static getAnimalWin(animalList: Animal[]): string[] {
         let maxSpeed = animalList[0].getSpeed();
-        let animalMaxSpeed: string[] = [];
+        let animalWin: string[] = [];
 
         for (let index = 1; index < animalList.length; index++) {
             if (animalList[index].getSpeed() > maxSpeed) {
@@ -15,10 +15,10 @@ export default class AnimalController {
         for (const animal of animalList) {
             if (animal.getSpeed() === maxSpeed) {
                 let name = animal.getName();
-                animalMaxSpeed.push(name);
+                animalWin.push(name);
             }
         }
-        return animalMaxSpeed;
+        return animalWin;
     }
 
 }

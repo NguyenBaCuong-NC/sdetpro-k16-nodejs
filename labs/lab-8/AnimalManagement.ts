@@ -7,10 +7,10 @@ import Dog from './Dog';
 const dog = new Dog();
 const horse = new Horse();
 const tiger = new Tiger();
-const maxSpeedAnimal = AnimalController.getAnimalMaxSpeed([dog, horse, tiger]);
+const animalWin = AnimalController.getAnimalWin([dog, horse, tiger]);
 
 console.log(`${dog.getName()}: ${dog.getSpeed()}`);
 console.log(`${tiger.getName()}: ${tiger.getSpeed()}`);
 console.log(`${horse.getName()}: ${horse.getSpeed()}`);
 
-console.log(`The ${maxSpeedAnimal} is winner for racing`);
+console.log(`The ${animalWin} is winner for racing`);
