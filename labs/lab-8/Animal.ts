@@ -2,9 +2,10 @@ export default class Animal {
 
     protected speed: number;
     protected name: string;
+    protected maxSpeed: number;
 
-    constructor(speed: number, name: string) {
-        this.speed = speed;
+    constructor(maxSpeed: number, name: string) {
+        this.speed = this.getRandomSpeed(maxSpeed);
         this.name = name;
     }
 
@@ -14,6 +15,14 @@ export default class Animal {
 
     getName() {
         return this.name;
+    }
+
+    getRandomSpeed(maxSpeed: number) {
+        let randomSpeed = Math.floor(Math.random() * maxSpeed + 1);
+        if (randomSpeed <= 0) {
+            randomSpeed = 1;
+        }
+        return randomSpeed;
     }
 
 }

@@ -19,18 +19,8 @@ var Animal_1 = require("./Animal");
 var Dog = /** @class */ (function (_super) {
     __extends(Dog, _super);
     function Dog() {
-        var _this = _super.call(this, 1, "Dog") || this;
-        _this.randomSpeed = _this.getRandomSpeed();
-        _this.speed = _this.randomSpeed;
-        return _this;
+        return _super.call(this, 60, "Dog") || this;
     }
-    Dog.prototype.getRandomSpeed = function () {
-        var randomSpeed = Math.floor(Math.random() * 100 + 1 - 40);
-        if (randomSpeed <= 0) {
-            randomSpeed = 1;
-        }
-        return randomSpeed;
-    };
     return Dog;
 }(Animal_1.default));
 exports.default = Dog;

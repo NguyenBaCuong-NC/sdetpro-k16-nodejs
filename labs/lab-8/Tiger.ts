@@ -1,16 +1,9 @@
 import Animal from './Animal';
 
-export default class Tiger extends Animal {
-
-    private randomSpeed: number = this.getRandomSpeed();
+export default class Dog extends Animal {
 
     constructor() {
-        super(1, 'Tiger');
-        this.speed = this.randomSpeed;
-    }
-
-    getRandomSpeed() {
-        return Math.floor(Math.random() * 100 + 1);
+        super(100, "Tiger");
     }
 
 }

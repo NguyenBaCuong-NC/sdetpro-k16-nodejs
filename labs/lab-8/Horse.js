@@ -16,21 +16,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Animal_1 = require("./Animal");
-var Horse = /** @class */ (function (_super) {
-    __extends(Horse, _super);
-    function Horse() {
-        var _this = _super.call(this, 1, 'Horse') || this;
-        _this.randomSpeed = _this.getRandomSpeed();
-        _this.speed = _this.randomSpeed;
-        return _this;
+var Dog = /** @class */ (function (_super) {
+    __extends(Dog, _super);
+    function Dog() {
+        return _super.call(this, 75, "Horse") || this;
     }
-    Horse.prototype.getRandomSpeed = function () {
-        var randomSpeed = Math.floor(Math.random() * 100 + 1 - 25);
-        if (randomSpeed <= 0) {
-            randomSpeed = 1;
-        }
-        return randomSpeed;
-    };
-    return Horse;
+    return Dog;
 }(Animal_1.default));
-exports.default = Horse;
+exports.default = Dog;
