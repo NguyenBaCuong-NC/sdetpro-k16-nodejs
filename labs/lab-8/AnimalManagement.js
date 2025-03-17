@@ -11,4 +11,4 @@ var animalWin = AnimalController_1.default.getAnimalWin([dog, horse, tiger]);
 console.log("".concat(dog.getName(), ": ").concat(dog.getSpeed()));
 console.log("".concat(tiger.getName(), ": ").concat(tiger.getSpeed()));
 console.log("".concat(horse.getName(), ": ").concat(horse.getSpeed()));
-console.log("The ".concat(animalWin, " is winner for racing"));
+console.log("The ".concat(animalWin, " is winner for racing!"));

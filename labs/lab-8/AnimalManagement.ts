@@ -13,4 +13,4 @@ console.log(`${dog.getName()}: ${dog.getSpeed()}`);
 console.log(`${tiger.getName()}: ${tiger.getSpeed()}`);
 console.log(`${horse.getName()}: ${horse.getSpeed()}`);
 
-console.log(`The ${animalWin} is winner for racing`);
+console.log(`The ${animalWin} is winner for racing!`);
