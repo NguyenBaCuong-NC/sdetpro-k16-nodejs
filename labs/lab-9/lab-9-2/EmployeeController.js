@@ -4,13 +4,13 @@ var EmployeeController = /** @class */ (function () {
     function EmployeeController() {
     }
     EmployeeController.getSortedEmployee = function (employee) {
-        var sortedEmployee = this._getSortName(employee);
+        var sortedEmployee = this.getSortName(employee);
         sortedEmployee.sort(function (a, b) {
             return a.getSalary() - b.getSalary();
         });
         return sortedEmployee;
     };
-    EmployeeController._getSortName = function (employee) {
+    EmployeeController.getSortName = function (employee) {
         var unsortedPosition = employee.length - 1;
         while (unsortedPosition > 0) {
             for (var index = 0; index < unsortedPosition; index++) {

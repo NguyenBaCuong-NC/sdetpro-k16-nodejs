@@ -6,14 +6,14 @@ import Tun from "./Tun";
 export default class EmployeeController {
 
     static getSortedEmployee(employee: Employee[]): Employee[] {
-        let sortedEmployee = this._getSortName(employee);
+        let sortedEmployee = this.getSortName(employee);
         sortedEmployee.sort((a, b) => {
             return a.getSalary() - b.getSalary();
         });
         return sortedEmployee;
     }
 
-    private static _getSortName(employee: Employee[]): Employee[] {
+    private static getSortName(employee: Employee[]): Employee[] {
         let unsortedPosition = employee.length - 1;
         while (unsortedPosition > 0) {
             for (let index = 0; index < unsortedPosition; index++) {
