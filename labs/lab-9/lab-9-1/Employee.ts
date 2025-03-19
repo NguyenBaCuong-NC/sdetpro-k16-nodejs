@@ -3,7 +3,7 @@ export default abstract class Employee {
     protected salary: number;
     protected totalEmployee: number;
 
-    constructor( salary: number) {
+    constructor(salary: number) {
         this.salary = salary;
     }
 
@@ -15,6 +15,6 @@ export default abstract class Employee {
 
     public getTotalEmployee(): number {
         return this.totalEmployee;
-    }s
+    }
 
 }

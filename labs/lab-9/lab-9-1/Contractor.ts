@@ -3,7 +3,7 @@ import Employee from "./Employee";
 export default class Contractor extends Employee {
 
     constructor() {
-        super(50000);
+        super(40 * 1000);
     }
 
     setTotalEmployee(): void {
