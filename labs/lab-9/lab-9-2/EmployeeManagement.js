@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Ti_1 = require("./Ti");
+var Teo_1 = require("./Teo");
+var Tun_1 = require("./Tun");
+var EmployeeController_1 = require("./EmployeeController");
+var teo = new Teo_1.default();
+var tun = new Tun_1.default();
+var ti = new Ti_1.default();
+var sortEmployee = EmployeeController_1.default.getSortedEmployee([teo, ti, tun]);
+console.log(sortEmployee);
