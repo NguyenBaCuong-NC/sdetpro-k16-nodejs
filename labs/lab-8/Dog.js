@@ -19,7 +19,7 @@ var Animal_1 = require("./Animal");
 var Dog = /** @class */ (function (_super) {
     __extends(Dog, _super);
     function Dog() {
-        return _super.call(this, 60, "Dog") || this;
+        return _super.call(this, "Dog", 60) || this;
     }
     return Dog;
 }(Animal_1.default));

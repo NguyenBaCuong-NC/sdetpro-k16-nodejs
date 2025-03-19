@@ -1,9 +1,9 @@
 
-let teo = {
-    name: "Teo",
-    age: 18,
-}
-
-let array = [1, 2, 3, 4, 5];
-
+const animals = [
+    { name: "Dog", age: 3 },
+    { name: "Cat", age: 2 },
+    { name: "Elephant", age: 10 }
+  ];
+  
+  console.log(`Animals: ${animals.map(animal => `${animal.name} (${animal.age} years old)`).join(", ")}`);
 
