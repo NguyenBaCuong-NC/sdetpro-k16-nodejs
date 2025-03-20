@@ -11,7 +11,7 @@ export default abstract class Employee {
         return this.salary;
     }
 
-    public abstract setTotalEmployee(): void;
+    protected abstract setTotalEmployee(): void;
 
     public getTotalEmployee(): number {
         return this.totalEmployee;

@@ -7,7 +7,6 @@ export default class EmployeeController {
     static getTotalSalary(employeeList: Employee[]): number {
         let totalSalary = 0;
         for (let employee of employeeList) {
-            employee.setTotalEmployee();
             totalSalary = totalSalary + employee.getSalary() * employee.getTotalEmployee();
         }
         return totalSalary;

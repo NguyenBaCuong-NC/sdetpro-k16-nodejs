@@ -12,6 +12,6 @@ export default class FTE extends Employee {
 
 }
 
-let teo = new FTE();
-teo.setBonus();
-console.log(teo.getBonus());
+// let teo = new FTE();
+// teo.setBonus();
+// console.log(teo.getBonus());

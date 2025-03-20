@@ -16,17 +16,14 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Employee_1 = require("./Employee");
-var FTE = /** @class */ (function (_super) {
-    __extends(FTE, _super);
-    function FTE() {
-        return _super.call(this, 20000) || this;
+var Contractor = /** @class */ (function (_super) {
+    __extends(Contractor, _super);
+    function Contractor() {
+        return _super.call(this, 10000) || this;
     }
-    FTE.prototype.setBonus = function () {
-        this.bonus = 1000;
+    Contractor.prototype.setBonus = function () {
+        this.bonus = 0;
     };
-    return FTE;
+    return Contractor;
 }(Employee_1.default));
-exports.default = FTE;
-// let teo = new FTE();
-// teo.setBonus();
-// console.log(teo.getBonus());
+exports.default = Contractor;
