@@ -5,9 +5,7 @@ var EmployeeController = /** @class */ (function () {
     }
     EmployeeController.getSortedEmployee = function (employee) {
         var sortedEmployee = this.getSortName(employee);
-        sortedEmployee.sort(function (a, b) {
-            return a.getSalary() - b.getSalary();
-        });
+        sortedEmployee.sort(function (a, b) { return a.getSalary() - b.getSalary(); });
         return sortedEmployee;
     };
     EmployeeController.getSortName = function (employee) {

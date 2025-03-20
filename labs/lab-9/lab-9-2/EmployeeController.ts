@@ -7,9 +7,7 @@ export default class EmployeeController {
 
     static getSortedEmployee(employee: Employee[]): Employee[] {
         let sortedEmployee = this.getSortName(employee);
-        sortedEmployee.sort((a, b) => {
-            return a.getSalary() - b.getSalary();
-        });
+        sortedEmployee.sort((a, b) => a.getSalary() - b.getSalary());
         return sortedEmployee;
     }
 
