@@ -7,6 +7,6 @@ import EmployeeController from "./EmployeeController";
 const teo = new Teo();
 const tun = new Tun();
 const ti = new Ti();
-const sortEmployee = EmployeeController.getSortedEmployee([teo, ti, tun]);
+const sortedEmployee = EmployeeController.getSortedEmployee([teo, ti, tun]);
 
-console.log(sortEmployee);
+console.log(sortedEmployee);

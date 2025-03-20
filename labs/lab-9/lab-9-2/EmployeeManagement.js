@@ -7,5 +7,5 @@ var EmployeeController_1 = require("./EmployeeController");
 var teo = new Teo_1.default();
 var tun = new Tun_1.default();
 var ti = new Ti_1.default();
-var sortEmployee = EmployeeController_1.default.getSortedEmployee([teo, ti, tun]);
-console.log(sortEmployee);
+var sortedEmployee = EmployeeController_1.default.getSortedEmployee([teo, ti, tun]);
+console.log(sortedEmployee);
