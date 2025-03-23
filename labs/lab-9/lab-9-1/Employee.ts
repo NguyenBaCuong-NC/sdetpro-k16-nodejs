@@ -1,20 +1,18 @@
 export default abstract class Employee {
 
+    protected name: string;
     protected salary: number;
-    protected totalEmployee: number;
 
-    constructor(salary: number) {
-        this.salary = salary;
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    public getName(): string {
+        return this.name;
     }
 
     public getSalary(): number {
         return this.salary;
-    }
-
-    protected abstract setTotalEmployee(): void;
-
-    public getTotalEmployee(): number {
-        return this.totalEmployee;
     }
 
 }

@@ -16,11 +16,13 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Employee_1 = require("./Employee");
-var Tun = /** @class */ (function (_super) {
-    __extends(Tun, _super);
-    function Tun() {
-        return _super.call(this, "Tun", 30 * 1000) || this;
+var Contractor = /** @class */ (function (_super) {
+    __extends(Contractor, _super);
+    function Contractor(name) {
+        var _this = _super.call(this, name) || this;
+        _this.salary = 40 * 1000;
+        return _this;
     }
-    return Tun;
+    return Contractor;
 }(Employee_1.default));
-exports.default = Tun;
+exports.default = Contractor;

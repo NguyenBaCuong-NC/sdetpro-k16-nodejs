@@ -3,9 +3,8 @@ export default abstract class Employee {
     protected name: string;
     protected salary: number;
 
-    constructor(name: string, salary: number) {
+    constructor(name: string) {
         this.name = name;
-        this.salary = salary;
     }
 
     public getSalary(): number {
@@ -14,6 +13,6 @@ export default abstract class Employee {
 
     public getName(): number {
         return this.salary;
-    } 
+    }
 
 }

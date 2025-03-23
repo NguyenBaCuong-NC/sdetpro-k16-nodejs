@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Employee = /** @class */ (function () {
-    function Employee(name, salary) {
+    function Employee(name) {
         this.name = name;
-        this.salary = salary;
     }
     Employee.prototype.getSalary = function () {
         return this.salary;

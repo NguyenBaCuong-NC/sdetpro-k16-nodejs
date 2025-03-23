@@ -1,12 +1,13 @@
 import Employee from "./Employee";
-import Ti from "./Ti";
-import Teo from "./Teo";
-import Tun from "./Tun";
+import FTE from "./FTE";
+import Contractor from "./Contractor";
 import EmployeeController from "./EmployeeController";
 
-const teo = new Teo();
-const tun = new Tun();
-const ti = new Ti();
-const sortedEmployee = EmployeeController.getSortedEmployee([teo, ti, tun]);
+const a = new FTE("A");
+const b = new Contractor("B");
+const c = new FTE("C");
+const e = new FTE("E");
+const d = new Contractor("D");
+const sortedEmployee = EmployeeController.getSortedEmployee([a, b, c, d, e]);
 
 console.log(sortedEmployee);

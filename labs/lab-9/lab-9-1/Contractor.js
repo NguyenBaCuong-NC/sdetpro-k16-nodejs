@@ -18,12 +18,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Employee_1 = require("./Employee");
 var Contractor = /** @class */ (function (_super) {
     __extends(Contractor, _super);
-    function Contractor() {
-        return _super.call(this, 40 * 1000) || this;
+    function Contractor(name) {
+        var _this = _super.call(this, name) || this;
+        _this.salary = 40 * 1000;
+        return _this;
     }
-    Contractor.prototype.setTotalEmployee = function () {
-        this.totalEmployee = 2;
-    };
     return Contractor;
 }(Employee_1.default));
 exports.default = Contractor;

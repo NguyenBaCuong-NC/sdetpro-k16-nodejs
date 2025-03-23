@@ -1,7 +1,6 @@
 import Employee from "./Employee";
-import Ti from "./Ti";
-import Teo from "./Teo";
-import Tun from "./Tun";
+import FTE from "./FTE";
+import Contractor from "./Contractor";
 
 export default class EmployeeController {
 
