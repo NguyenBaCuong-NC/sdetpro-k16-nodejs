@@ -19,9 +19,7 @@ var Employee_1 = require("./Employee");
 var FTE = /** @class */ (function (_super) {
     __extends(FTE, _super);
     function FTE(name) {
-        var _this = _super.call(this, name) || this;
-        _this.salary = 50 * 1000;
-        return _this;
+        return _super.call(this, name, 50 * 1000) || this;
     }
     return FTE;
 }(Employee_1.default));

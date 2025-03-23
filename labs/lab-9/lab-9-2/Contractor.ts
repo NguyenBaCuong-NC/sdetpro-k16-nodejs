@@ -3,8 +3,7 @@ import Employee from "./Employee";
 export default class Contractor extends Employee {
 
     constructor(name: string) {
-        super(name);
-        this.salary = 40 * 1000;
+        super(name, 40 * 1000);
     }
 
 }
