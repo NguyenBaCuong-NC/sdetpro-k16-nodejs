@@ -5,12 +5,12 @@ import Contractor from "./Contractor";
 export default class EmployeeController {
 
     static getSortedEmployee(employee: Employee[]): Employee[] {
-        let sortedEmployee = this.getSortName(employee);
+        let sortedEmployee = this.getSortedName(employee);
         sortedEmployee.sort((a, b) => a.getSalary() - b.getSalary());
         return sortedEmployee;
     }
 
-    private static getSortName(employee: Employee[]): Employee[] {
+    private static getSortedName(employee: Employee[]): Employee[] {
         let unsortedPosition = employee.length - 1;
         while (unsortedPosition > 0) {
             for (let index = 0; index < unsortedPosition; index++) {
