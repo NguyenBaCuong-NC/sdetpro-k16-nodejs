@@ -4,7 +4,6 @@ var CheckingAccount_1 = require("./CheckingAccount");
 var SavingsAccount_1 = require("./SavingsAccount");
 var savingsTeo = new SavingsAccount_1.default("Teo", 5000);
 savingsTeo.deposit(500);
-savingsTeo.withdraw();
 console.log("".concat(savingsTeo.getAcountName(), "'s account balance: ").concat(savingsTeo.getBalance()));
 var checkingTi = new CheckingAccount_1.default("Ti", 5000);
 checkingTi.withdraw(450);

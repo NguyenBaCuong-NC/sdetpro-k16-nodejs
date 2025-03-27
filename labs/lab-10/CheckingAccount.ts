@@ -7,7 +7,7 @@ export default class CheckingAccount extends BankingAccount {
     }
 
     public deposit(): void {
-        throw new Error("Error!")
+        throw new Error("Error!");
     }
 
     public withdraw(amount: number): void {
