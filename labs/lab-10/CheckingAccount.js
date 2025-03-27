@@ -22,6 +22,7 @@ var CheckingAccount = /** @class */ (function (_super) {
         return _super.call(this, accountName, balance) || this;
     }
     CheckingAccount.prototype.deposit = function () {
+        throw new Error("Error!");
     };
     CheckingAccount.prototype.withdraw = function (amount) {
         if (amount <= 0) {

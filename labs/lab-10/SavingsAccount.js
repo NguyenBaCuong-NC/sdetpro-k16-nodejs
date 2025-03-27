@@ -28,6 +28,7 @@ var SavingsAccount = /** @class */ (function (_super) {
         this.balance = this.balance + amount;
     };
     SavingsAccount.prototype.withdraw = function () {
+        throw new Error("Error!");
     };
     return SavingsAccount;
 }(BankingAccount_1.default));

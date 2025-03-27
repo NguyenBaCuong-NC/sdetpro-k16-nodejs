@@ -14,6 +14,7 @@ export default class SavingsAccount extends BankingAccount {
     }
 
     public withdraw(): void {
+        throw new Error("Error!")
     }
 
 }
