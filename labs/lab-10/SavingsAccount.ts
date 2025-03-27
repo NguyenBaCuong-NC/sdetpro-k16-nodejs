@@ -8,7 +8,7 @@ export default class SavingsAccount extends BankingAccount {
 
     public deposit(amount: number): void {
         if (amount <= 0) {
-            throw new Error("The deposit amount must be greater than 0!")
+            throw new Error("The deposit amount must be greater than 0!");
         }
         this.balance = this.balance + amount;
     }
