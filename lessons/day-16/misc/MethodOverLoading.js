@@ -20,7 +20,7 @@ console.log(result2); // 6
 
 class MethodOverLoading {
 
-    static add2(factor, anatherThing, ...nums) {
+    static add2(factor, anotherThing, ...nums) {
         let sum = 0;
         for (const num of nums) {
             sum = sum + num;
