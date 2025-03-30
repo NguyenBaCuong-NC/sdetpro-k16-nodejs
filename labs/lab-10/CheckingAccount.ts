@@ -15,7 +15,9 @@ export default class CheckingAccount extends BankingAccount {
             throw new Error("The withdrawal amount must be greater than 0!");
         }
         if (this.balance - amount < 50) {
-            throw new Error("Your account balance is insufficient!");
+            throw new Error(`
+                Your current balance is: ${this.balance} but you requested ${amount}
+                Maximum amount you can withdraw is ${this.balance - 50}`);
         }
         this.balance = this.balance - amount;
     }

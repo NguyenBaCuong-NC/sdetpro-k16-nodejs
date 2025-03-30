@@ -29,7 +29,7 @@ var CheckingAccount = /** @class */ (function (_super) {
             throw new Error("The withdrawal amount must be greater than 0!");
         }
         if (this.balance - amount < 50) {
-            throw new Error("Your account balance is insufficient!");
+            throw new Error("\n                Your current balance is: ".concat(this.balance, " but you requested ").concat(amount, "\n                Maximum amount you can withdraw is ").concat(this.balance - 50));
         }
         this.balance = this.balance - amount;
     };
