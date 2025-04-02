@@ -16,7 +16,7 @@ for (var index = 0; index < contractorNumber; index++) {
 var employeeList = fteEmployeeList.concat(contractorEmployeeList);
 var totalSalary = EmployeeController_1.default.getTotalSalary(employeeList);
 console.log("Total Salary: ".concat(totalSalary));
-var sortedEmployeesByName = EmployeeController_1.default.getSortedByNameThenSalary(employeeList, "DESC", "DESC");
-var sortedEmployeesBySalary = EmployeeController_1.default.getSortedBySalaryThenName(employeeList, "DESC", "DESC");
+var sortedEmployeesByName = EmployeeController_1.default.getSortedByNameThenSalary(employeeList, 'ASC', 'ASC');
+var sortedEmployeesBySalary = EmployeeController_1.default.getSortedBySalaryThenName(employeeList, 'ASC', 'ASC');
 console.log(sortedEmployeesByName);
 console.log(sortedEmployeesBySalary);

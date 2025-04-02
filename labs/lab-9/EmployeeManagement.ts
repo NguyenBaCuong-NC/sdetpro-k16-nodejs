@@ -21,8 +21,8 @@ const employeeList = fteEmployeeList.concat(contractorEmployeeList);
 const totalSalary = EmployeeController.getTotalSalary(employeeList);
 console.log(`Total Salary: ${totalSalary}`);
 
-const sortedEmployeesByName = EmployeeController.getSortedByNameThenSalary(employeeList, "DESC", "DESC");
-const sortedEmployeesBySalary = EmployeeController.getSortedBySalaryThenName(employeeList, "DESC", "DESC");
+const sortedEmployeesByName = EmployeeController.getSortedByNameThenSalary(employeeList, 'ASC', 'ASC');
+const sortedEmployeesBySalary = EmployeeController.getSortedBySalaryThenName(employeeList, 'ASC', 'ASC');
 
 console.log(sortedEmployeesByName);
 console.log(sortedEmployeesBySalary);

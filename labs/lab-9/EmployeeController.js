@@ -70,10 +70,10 @@ var EmployeeController = /** @class */ (function () {
     };
     EmployeeController.avaliableRules = function (ruleName, ruleSalary) {
         if (ruleName !== "ASC" && ruleName !== "DESC") {
-            throw new Error("Invalid rule name. Must be 'ASC' or 'DESC'");
+            throw new Error("Invalid sort name rule!. Must be 'ASC' or 'DESC'");
         }
         if (ruleSalary !== "ASC" && ruleSalary !== "DESC") {
-            throw new Error("Invalid rule salary. Must be 'ASC' or 'DESC'");
+            throw new Error("Invalid sort salary rule!. Must be 'ASC' or 'DESC'");
         }
     };
     return EmployeeController;
