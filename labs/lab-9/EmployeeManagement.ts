@@ -17,7 +17,6 @@ for (let index = 0; index < contractorNumber; index++) {
 }
 
 const employeeList = fteEmployeeList.concat(contractorEmployeeList);
-
 const totalSalary = EmployeeController.getTotalSalary(employeeList);
 console.log(`Total Salary: ${totalSalary}`);
 

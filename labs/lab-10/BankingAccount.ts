@@ -1,16 +1,7 @@
 export default abstract class BankingAccount {
 
-    protected accountName: string;
     protected balance: number;
-
-    constructor(accountName: string, balance: number) {
-        this.accountName = accountName;
-        this.balance = balance;
-    }
-
-    public getAcountName(): string {
-        return this.accountName;
-    }
+    protected minimumBalance: number;
 
     public getBalance(): number {
         return this.balance;
@@ -18,5 +9,14 @@ export default abstract class BankingAccount {
 
     protected abstract deposit(amount: number): void;
     protected abstract withdraw(amount: number): void;
+
+    protected withDraw(amount: number, errMsg: string): number {
+        let draftBalance = this.balance - amount;
+        if (draftBalance < this.minimumBalance) {
+            throw new Error(errMsg);
+        }
+        this.balance = draftBalance;
+        return draftBalance;
+    }
 
 }
