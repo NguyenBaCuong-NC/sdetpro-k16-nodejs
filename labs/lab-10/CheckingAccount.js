@@ -18,20 +18,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var BankingAccount_1 = require("./BankingAccount");
 var CheckingAccount = /** @class */ (function (_super) {
     __extends(CheckingAccount, _super);
-    function CheckingAccount(accountName, balance) {
-        return _super.call(this, accountName, balance) || this;
+    function CheckingAccount() {
+        var _this = _super.call(this) || this;
+        _this.minimumBalance = 50;
+        return _this;
     }
-    CheckingAccount.prototype.deposit = function () {
-        throw new Error("Error!");
+    CheckingAccount.prototype.deposit = function (amount) {
+        this.validateAmount(amount);
+        this.balance += amount;
     };
     CheckingAccount.prototype.withdraw = function (amount) {
-        if (amount <= 0) {
-            throw new Error("The withdrawal amount must be greater than 0!");
-        }
-        if (this.balance - amount < 50) {
-            throw new Error("\n                Your current balance is: ".concat(this.balance, " but you requested ").concat(amount, "\n                Maximum amount you can withdraw is ").concat(this.balance - 50));
-        }
-        this.balance = this.balance - amount;
+        this.validateAmount(amount);
+        var errMsg = "Checking account must have minimum balance as 50!";
+        this.balance = this._withDraw(amount, errMsg);
     };
     return CheckingAccount;
 }(BankingAccount_1.default));

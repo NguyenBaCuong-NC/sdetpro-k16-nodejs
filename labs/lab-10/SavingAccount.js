@@ -16,20 +16,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var BankingAccount_1 = require("./BankingAccount");
-var SavingsAccount = /** @class */ (function (_super) {
-    __extends(SavingsAccount, _super);
-    function SavingsAccount(accountName, balance) {
-        return _super.call(this, accountName, balance) || this;
+var SavingAccount = /** @class */ (function (_super) {
+    __extends(SavingAccount, _super);
+    function SavingAccount() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SavingsAccount.prototype.deposit = function (amount) {
-        if (amount <= 0) {
-            throw new Error("The deposit amount must be greater than 0!");
-        }
-        this.balance = this.balance + amount;
+    SavingAccount.prototype.deposit = function (amount) {
+        this.validateAmount(amount);
+        this.balance += amount;
     };
-    SavingsAccount.prototype.withdraw = function () {
-        throw new Error("Error!");
+    SavingAccount.prototype.withdraw = function (amount) {
+        this.validateAmount(amount);
+        var errMsg = "Checking account must have minimum balance as 0!";
+        this.balance = this._withDraw(amount, errMsg);
     };
-    return SavingsAccount;
+    return SavingAccount;
 }(BankingAccount_1.default));
-exports.default = SavingsAccount;
+exports.default = SavingAccount;

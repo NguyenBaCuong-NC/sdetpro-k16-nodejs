@@ -1,11 +1,14 @@
 import BankingAccount from "./BankingAccount"
 import CheckingAccount from "./CheckingAccount"
-import SavingsAccount from "./SavingsAccount"
+import SavingAccount from "./SavingAccount"
 
-const savingsTeo = new SavingsAccount("Teo", 5000);
-savingsTeo.deposit(500);
-console.log(`${savingsTeo.getAcountName()}'s account balance: ${savingsTeo.getBalance()}`);
+const savingAcc = new SavingAccount();
+const checkingAcc = new CheckingAccount();
 
-const checkingTi = new CheckingAccount("Ti", 5000);
-checkingTi.withdraw(450);
-console.log(`${checkingTi.getAcountName()}'s account balance: ${checkingTi.getBalance()}`);
+savingAcc.deposit(500);
+savingAcc.withdraw(500);
+console.log(`Saving account balance: ${savingAcc.getBalance()}`);
+
+checkingAcc.deposit(500);
+checkingAcc.withdraw(100);
+console.log(`Checking account balance: ${checkingAcc.getBalance()}`);
