@@ -29,26 +29,19 @@ var EmployeeController = /** @class */ (function () {
         else {
             copiedList.sort(function (a, b) { return b.getName().localeCompare(a.getName()); });
         }
-        if (ruleSalary === "ASC") {
-            copiedList.sort(function (a, b) {
-                if (a.getName() === b.getName()) {
+        copiedList.sort(function (a, b) {
+            if (a.getName() === b.getName()) {
+                if (ruleSalary === "ASC") {
                     return a.getSalary() - b.getSalary();
                 }
                 else {
-                    return 0;
-                }
-            });
-        }
-        else {
-            copiedList.sort(function (a, b) {
-                if (a.getName() === b.getName()) {
                     return b.getSalary() - a.getSalary();
                 }
-                else {
-                    return 0;
-                }
-            });
-        }
+            }
+            else {
+                return 0;
+            }
+        });
         return copiedList;
     };
     EmployeeController.getSortedBySalaryThenName = function (employeeList, ruleName, ruleSalary) {
@@ -60,26 +53,19 @@ var EmployeeController = /** @class */ (function () {
         else {
             copiedList.sort(function (a, b) { return b.getSalary() - a.getSalary(); });
         }
-        if (ruleName === "ASC") {
-            copiedList.sort(function (a, b) {
-                if (a.getSalary() === b.getSalary()) {
+        copiedList.sort(function (a, b) {
+            if (a.getSalary() === b.getSalary()) {
+                if (ruleName === "ASC") {
                     return a.getName().localeCompare(b.getName());
                 }
                 else {
-                    return 0;
-                }
-            });
-        }
-        else {
-            copiedList.sort(function (a, b) {
-                if (a.getSalary() === b.getSalary()) {
                     return b.getName().localeCompare(a.getName());
                 }
-                else {
-                    return 0;
-                }
-            });
-        }
+            }
+            else {
+                return 0;
+            }
+        });
         return copiedList;
     };
     EmployeeController.avaliableRules = function (ruleName, ruleSalary) {
