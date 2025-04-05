@@ -1,14 +1,13 @@
 import Book from "./Book";
-import readline from 'readline-sync';
 
 export default class AddNewBook extends Book {
 
-    constructor() {
+    constructor(ISBN: number, title: string, author: string, year: number) {
         super();
-        this.ISBN = Number(readline.question('Please input ISBN: '));
-        this.title = readline.question('Please input title: ');
-        this.author = readline.question('Please input author: ');
-        this.year = Number(readline.question('Please input year: '));
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.year = year;
     }
 
     addBook(newBook: AddNewBook) {
