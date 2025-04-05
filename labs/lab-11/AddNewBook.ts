@@ -10,7 +10,7 @@ export default class AddNewBook extends Book {
         this.year = year;
     }
 
-    addNewBook(bookList: Book[], newBook: AddNewBook) {
+    addNewBook(bookList: Book[], newBook: Book) {
         bookList.push(newBook);
     }
 
