@@ -5,14 +5,14 @@ var FindBook_1 = require("./FindBook");
 var UpdateBook_1 = require("./UpdateBook");
 var DeleteBook_1 = require("./DeleteBook");
 var readline = require("readline-sync");
-var isStillAccess = true;
+var isStillAccessing = true;
 var bookList = [];
-while (isStillAccess) {
+while (isStillAccessing) {
     printManu();
     var userOption = Number(readline.question("Enter user Option: "));
     switch (userOption) {
         case 0:
-            isStillAccess = false;
+            isStillAccessing = false;
             console.log("See you again!");
             break;
         case 1:

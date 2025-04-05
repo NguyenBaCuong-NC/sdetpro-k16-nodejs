@@ -5,15 +5,15 @@ import UpdateBook from './UpdateBook';
 import DeleteBook from './DeleteBook';
 import * as readline from 'readline-sync';
 
-let isStillAccess = true;
+let isStillAccessing = true;
 let bookList: Book[] = [];
 
-while (isStillAccess) {
+while (isStillAccessing) {
     printManu();
     let userOption = Number(readline.question("Enter user Option: "));
     switch (userOption) {
         case 0:
-            isStillAccess = false;
+            isStillAccessing = false;
             console.log("See you again!");
             break;
         case 1:
