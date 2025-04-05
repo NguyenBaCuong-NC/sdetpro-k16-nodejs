@@ -1,12 +1,11 @@
 export default abstract class Book {
-    protected ISBN: number;
-    protected title: string;
-    protected author: string;
-    protected year: number;
-    protected bookList: Book[] = [];
+    protected iSBN: number;
+    public title: string;
+    public author: string;
+    public year: number;
 
     getISBN() {
-        return this.ISBN;
+        return this.iSBN;
     }
 
     getTitle() {
@@ -19,10 +18,6 @@ export default abstract class Book {
 
     getYear() {
         return this.year;
-    }
-
-    getBookList() {
-        return this.bookList;
     }
 
 }

@@ -1,42 +1,67 @@
 import Book from './Book';
 import AddNewBook from './AddNewBook';
 import FindBook from './FindBook';
+import UpdateBook from './UpdateBook';
+import DeleteBook from './DeleteBook';
 import * as readline from 'readline-sync';
 
 let isStillAccess = true;
+let bookList: Book[] = [];
 
 while (isStillAccess) {
     printManu();
     let userOption = Number(readline.question("Enter user Option: "));
     switch (userOption) {
+        case 0:
+            isStillAccess = false;
+            break;
         case 1:
-            const addISBN: number = Number(readline.question('Please input ISBN: '));
-            const addTitle: string = readline.question('Please input title: ');
-            const addAuthor: string = readline.question('Please input author: ');
-            const addYear: number = Number(readline.question('Please input year: '));
-            const newBook = new AddNewBook(addISBN, addTitle, addAuthor, addYear);
-            newBook.addBook(newBook);
+            const iSBNAdded: number = Number(readline.question('Please input ISBN: '));
+            const titleAdded: string = readline.question('Please input title: ');
+            const authorAdded: string = readline.question('Please input author: ');
+            const yearAdded: number = Number(readline.question('Please input year: '));
+            const newBook = new AddNewBook(iSBNAdded, titleAdded, authorAdded, yearAdded);
+            newBook.addNewBook(bookList, newBook);
+            console.log(bookList);
             break;
         case 2:
-            const findISBN: number = Number(readline.question('Please input ISBN: '));
-            const targetBook = new FindBook();
-            targetBook.findBook(findISBN);
-            if (!targetBook) {
-                console.log(`Book with ISBN <${findISBN}> is not found!`);
+            const targetISBNFind: number = Number(readline.question('Please input ISBN: '));
+            const targetBookFind = new FindBook().findBook(bookList, targetISBNFind);
+            if (targetBookFind.length === 0) {
+                printBookNotExisting(targetISBNFind);
             } else {
-                console.log(targetBook);
+                console.log(targetBookFind);
             }
             break;
         case 3:
-
+            const targetISBNUpdate: number = Number(readline.question('Please input ISBN: '));
+            const targetBookUpdate = new FindBook().findBook(bookList, targetISBNUpdate);
+            if (targetBookUpdate.length === 0) {
+                printBookNotExisting(targetISBNUpdate);
+            } else {
+                const newTitle: string = readline.question('Please input new title: ');
+                const newAuthor: string = readline.question('Please input new author: ');
+                const newYear: number = Number(readline.question('Please input new year: '));
+                const bookUpdated = new UpdateBook().updateBook(bookList, targetISBNUpdate, newTitle, newAuthor, newYear);
+                console.log(bookUpdated);
+            }
             break;
         case 4:
-
+            const iSBNDelete: number = Number(readline.question('Please input ISBN: '));
+            const targetBookDelete = new FindBook().findBook(bookList, iSBNDelete);
+            if (targetBookDelete.length === 0) {
+                printBookNotExisting(iSBNDelete);
+            } else {
+                const bookDeleted = new DeleteBook();
+                bookDeleted.deleteBook(bookList, iSBNDelete);
+                console.log(targetBookDelete);
+            }
             break;
         case 5:
-
+            console.log(bookList);
             break;
         default:
+            console.log("Wrong option!");
             break;
     }
 }
@@ -50,4 +75,8 @@ function printManu() {
     4. Delete a book
     5. Print the book list
     0. Exit`);
+}
+
+function printBookNotExisting(iSBN: number) {
+    console.log(`Book with ISBN <${iSBN}> is not found!`);
 }

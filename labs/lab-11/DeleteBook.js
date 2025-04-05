@@ -16,19 +16,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Book_1 = require("./Book");
-var AddNewBook = /** @class */ (function (_super) {
-    __extends(AddNewBook, _super);
-    function AddNewBook(iSBN, title, author, year) {
-        var _this = _super.call(this) || this;
-        _this.iSBN = iSBN;
-        _this.title = title;
-        _this.author = author;
-        _this.year = year;
-        return _this;
+var DeleteBook = /** @class */ (function (_super) {
+    __extends(DeleteBook, _super);
+    function DeleteBook() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    AddNewBook.prototype.addNewBook = function (bookList, newBook) {
-        bookList.push(newBook);
+    DeleteBook.prototype.deleteBook = function (bookList, iSBN) {
+        for (var _i = 0, bookList_1 = bookList; _i < bookList_1.length; _i++) {
+            var book = bookList_1[_i];
+            if (book.getISBN() === iSBN) {
+                bookList.splice(bookList.indexOf(book), 1);
+                return bookList;
+            }
+        }
     };
-    return AddNewBook;
+    return DeleteBook;
 }(Book_1.default));
-exports.default = AddNewBook;
+exports.default = DeleteBook;

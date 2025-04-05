@@ -21,9 +21,9 @@ var FindBook = /** @class */ (function (_super) {
     function FindBook() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FindBook.prototype.findBook = function (ISBN) {
-        return this.bookList.filter(function (book) {
-            return book.getISBN() === ISBN;
+    FindBook.prototype.findBook = function (bookList, iSBN) {
+        return bookList.filter(function (book) {
+            return book.getISBN() === iSBN;
         });
     };
     return FindBook;
