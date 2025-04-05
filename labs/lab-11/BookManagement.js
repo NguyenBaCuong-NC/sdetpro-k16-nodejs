@@ -25,38 +25,38 @@ while (isStillAccessing) {
             console.log(bookList);
             break;
         case 2:
-            var targetFindedISBN = getISBN();
+            var findedISBN = getISBN();
             ;
-            var targetFindedBook = FindBook_1.default.findBook(bookList, targetFindedISBN);
+            var targetFindedBook = FindBook_1.default.findBook(bookList, findedISBN);
             if (targetFindedBook.length === 0) {
-                printBookNotExisting(targetFindedISBN);
+                printBookNotExisting(findedISBN);
             }
             else {
                 console.log(targetFindedBook);
             }
             break;
         case 3:
-            var targetUpdatedISBN = getISBN();
-            var targetUpdatedBook = FindBook_1.default.findBook(bookList, targetUpdatedISBN);
+            var updatedISBN = getISBN();
+            var targetUpdatedBook = FindBook_1.default.findBook(bookList, updatedISBN);
             if (targetUpdatedBook.length === 0) {
-                printBookNotExisting(targetUpdatedISBN);
+                printBookNotExisting(updatedISBN);
             }
             else {
                 var newTitle = getTitleOrAuthor('new title');
                 var newAuthor = getTitleOrAuthor('new author');
                 var newYear = getYear('new year');
-                var updatedBook = UpdateBook_1.default.updateBook(bookList, targetUpdatedISBN, newTitle, newAuthor, newYear);
+                var updatedBook = UpdateBook_1.default.updateBook(bookList, updatedISBN, newTitle, newAuthor, newYear);
                 console.log("The updated book is ".concat(JSON.stringify(updatedBook)));
             }
             break;
         case 4:
-            var iSBNDelete = getISBN();
-            var targetBookDelete = FindBook_1.default.findBook(bookList, iSBNDelete);
-            if (targetBookDelete.length === 0) {
-                printBookNotExisting(iSBNDelete);
+            var deletedISBN = getISBN();
+            var targetDeletedBook = FindBook_1.default.findBook(bookList, deletedISBN);
+            if (targetDeletedBook.length === 0) {
+                printBookNotExisting(deletedISBN);
             }
             else {
-                var deletedBook = DeleteBook_1.default.deleteBook(bookList, iSBNDelete);
+                var deletedBook = DeleteBook_1.default.deleteBook(bookList, deletedISBN);
                 console.log("The deleted book is ".concat(JSON.stringify(deletedBook)));
             }
             break;

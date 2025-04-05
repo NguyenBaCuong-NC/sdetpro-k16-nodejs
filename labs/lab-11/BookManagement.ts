@@ -26,34 +26,34 @@ while (isStillAccessing) {
             console.log(bookList);
             break;
         case 2:
-            const targetFindedISBN: number = getISBN();;
-            const targetFindedBook = FindBook.findBook(bookList, targetFindedISBN);
+            const findedISBN: number = getISBN();;
+            const targetFindedBook = FindBook.findBook(bookList, findedISBN);
             if (targetFindedBook.length === 0) {
-                printBookNotExisting(targetFindedISBN);
+                printBookNotExisting(findedISBN);
             } else {
                 console.log(targetFindedBook);
             }
             break;
         case 3:
-            const targetUpdatedISBN: number = getISBN();
-            const targetUpdatedBook = FindBook.findBook(bookList, targetUpdatedISBN);
+            const updatedISBN: number = getISBN();
+            const targetUpdatedBook = FindBook.findBook(bookList, updatedISBN);
             if (targetUpdatedBook.length === 0) {
-                printBookNotExisting(targetUpdatedISBN);
+                printBookNotExisting(updatedISBN);
             } else {
                 const newTitle: string = getTitleOrAuthor('new title');
                 const newAuthor: string = getTitleOrAuthor('new author');
                 const newYear: number = getYear('new year');
-                const updatedBook = UpdateBook.updateBook(bookList, targetUpdatedISBN, newTitle, newAuthor, newYear);
+                const updatedBook = UpdateBook.updateBook(bookList, updatedISBN, newTitle, newAuthor, newYear);
                 console.log(`The updated book is ${JSON.stringify(updatedBook)}`);
             }
             break;
         case 4:
-            const iSBNDelete: number = getISBN();
-            const targetBookDelete = FindBook.findBook(bookList, iSBNDelete);
-            if (targetBookDelete.length === 0) {
-                printBookNotExisting(iSBNDelete);
+            const deletedISBN: number = getISBN();
+            const targetDeletedBook = FindBook.findBook(bookList, deletedISBN);
+            if (targetDeletedBook.length === 0) {
+                printBookNotExisting(deletedISBN);
             } else {
-                const deletedBook = DeleteBook.deleteBook(bookList, iSBNDelete);
+                const deletedBook = DeleteBook.deleteBook(bookList, deletedISBN);
                 console.log(`The deleted book is ${JSON.stringify(deletedBook)}`);
             }
             break;
