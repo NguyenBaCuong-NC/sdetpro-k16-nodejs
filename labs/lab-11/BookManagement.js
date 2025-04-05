@@ -51,12 +51,12 @@ while (isStillAccessing) {
             break;
         case 4:
             var deletedISBN = getISBN();
-            var targetDeletedBook = FindBook_1.default.findBook(bookList, deletedISBN);
-            if (targetDeletedBook.length === 0) {
+            var deletedBook = FindBook_1.default.findBook(bookList, deletedISBN);
+            if (deletedBook.length === 0) {
                 printBookNotExisting(deletedISBN);
             }
             else {
-                var deletedBook = DeleteBook_1.default.deleteBook(bookList, deletedISBN);
+                DeleteBook_1.default.deleteBook(bookList, deletedISBN);
                 console.log("The deleted book is ".concat(JSON.stringify(deletedBook)));
             }
             break;
