@@ -17,46 +17,44 @@ while (isStillAccess) {
             console.log("See you again!");
             break;
         case 1:
-            const iSBNAdded: number = getISBN();
-            const titleAdded: string = getTitle();
-            const authorAdded: string = getAuthor();
-            const yearAdded: number = getYear();
-            const newBook = new AddNewBook(iSBNAdded, titleAdded, authorAdded, yearAdded);
+            const addedISBN: number = getISBN();
+            const addedTitle: string = getTitleOrAuthor('title');
+            const addedAuthor: string = getTitleOrAuthor('author');
+            const addedYear: number = getYear('year');
+            const newBook = new AddNewBook(addedISBN, addedTitle, addedAuthor, addedYear);
             newBook.addNewBook(bookList, newBook);
             console.log(bookList);
             break;
         case 2:
-            const targetISBNFind: number = getISBN();;
-            const targetBookFind = new FindBook().findBook(bookList, targetISBNFind);
-            if (targetBookFind.length === 0) {
-                printBookNotExisting(targetISBNFind);
+            const targetFindedISBN: number = getISBN();;
+            const targetFindedBook = FindBook.findBook(bookList, targetFindedISBN);
+            if (targetFindedBook.length === 0) {
+                printBookNotExisting(targetFindedISBN);
             } else {
-                console.log(targetBookFind);
+                console.log(targetFindedBook);
             }
             break;
         case 3:
-            const targetISBNUpdate: number = getISBN();
-            const targetBookUpdate = new FindBook().findBook(bookList, targetISBNUpdate);
-            if (targetBookUpdate.length === 0) {
-                printBookNotExisting(targetISBNUpdate);
+            const targetUpdatedISBN: number = getISBN();
+            const targetUpdatedBook = FindBook.findBook(bookList, targetUpdatedISBN);
+            if (targetUpdatedBook.length === 0) {
+                printBookNotExisting(targetUpdatedISBN);
             } else {
-                const newTitle: string = getTitle();
-                const newAuthor: string = getAuthor();
-                const newYear: number = getYear();
-                const bookUpdated = new UpdateBook();
-                bookUpdated.updateBook(bookList, targetISBNUpdate, newTitle, newAuthor, newYear);
-                console.log(bookUpdated);
+                const newTitle: string = getTitleOrAuthor('new title');
+                const newAuthor: string = getTitleOrAuthor('new author');
+                const newYear: number = getYear('new year');
+                const updatedBook = UpdateBook.updateBook(bookList, targetUpdatedISBN, newTitle, newAuthor, newYear);
+                console.log(`The updated book is ${JSON.stringify(updatedBook)}`);
             }
             break;
         case 4:
             const iSBNDelete: number = getISBN();
-            const targetBookDelete = new FindBook().findBook(bookList, iSBNDelete);
+            const targetBookDelete = FindBook.findBook(bookList, iSBNDelete);
             if (targetBookDelete.length === 0) {
                 printBookNotExisting(iSBNDelete);
             } else {
-                const bookDeleted = new DeleteBook();
-                bookDeleted.deleteBook(bookList, iSBNDelete);
-                console.log(targetBookDelete);
+                const deletedBook = DeleteBook.deleteBook(bookList, iSBNDelete);
+                console.log(`The deleted book is ${JSON.stringify(deletedBook)}`);
             }
             break;
         case 5:
@@ -87,14 +85,10 @@ function getISBN() {
     return Number(readline.question('Please input ISBN: '));
 }
 
-function getTitle() {
-    return readline.question('Please input title: ');
+function getTitleOrAuthor(text: string) {
+    return readline.question(`Please input ${text}: `);
 }
 
-function getAuthor() {
-    return readline.question('Please input author: ');
-}
-
-function getYear() {
-    return Number(readline.question('Please input year: '));
+function getYear(text: string) {
+    return Number(readline.question(`Please input ${text}: `));
 }

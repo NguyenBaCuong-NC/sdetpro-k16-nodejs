@@ -21,12 +21,12 @@ var DeleteBook = /** @class */ (function (_super) {
     function DeleteBook() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    DeleteBook.prototype.deleteBook = function (bookList, iSBN) {
+    DeleteBook.deleteBook = function (bookList, iSBN) {
         for (var _i = 0, bookList_1 = bookList; _i < bookList_1.length; _i++) {
             var book = bookList_1[_i];
             if (book.getISBN() === iSBN) {
                 bookList.splice(bookList.indexOf(book), 1);
-                return bookList;
+                return book;
             }
         }
     };

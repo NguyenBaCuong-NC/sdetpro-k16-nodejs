@@ -21,7 +21,7 @@ var UpdateBook = /** @class */ (function (_super) {
     function UpdateBook() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    UpdateBook.prototype.updateBook = function (bookList, iSBN, newTitle, newAuthor, newYear) {
+    UpdateBook.updateBook = function (bookList, iSBN, newTitle, newAuthor, newYear) {
         for (var _i = 0, bookList_1 = bookList; _i < bookList_1.length; _i++) {
             var book = bookList_1[_i];
             if (book.getISBN() === iSBN) {

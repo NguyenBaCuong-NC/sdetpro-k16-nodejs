@@ -16,49 +16,48 @@ while (isStillAccess) {
             console.log("See you again!");
             break;
         case 1:
-            var iSBNAdded = getISBN();
-            var titleAdded = getTitle();
-            var authorAdded = getAuthor();
-            var yearAdded = getYear();
-            var newBook = new AddNewBook_1.default(iSBNAdded, titleAdded, authorAdded, yearAdded);
+            var addedISBN = getISBN();
+            var addedTitle = getTitleOrAuthor('title');
+            var addedAuthor = getTitleOrAuthor('author');
+            var addedYear = getYear('year');
+            var newBook = new AddNewBook_1.default(addedISBN, addedTitle, addedAuthor, addedYear);
             newBook.addNewBook(bookList, newBook);
             console.log(bookList);
             break;
         case 2:
-            var targetISBNFind = getISBN();
+            var targetFindedISBN = getISBN();
             ;
-            var targetBookFind = new FindBook_1.default().findBook(bookList, targetISBNFind);
-            if (targetBookFind.length === 0) {
-                printBookNotExisting(targetISBNFind);
+            var targetFindedBook = FindBook_1.default.findBook(bookList, targetFindedISBN);
+            if (targetFindedBook.length === 0) {
+                printBookNotExisting(targetFindedISBN);
             }
             else {
-                console.log(targetBookFind);
+                console.log(targetFindedBook);
             }
             break;
         case 3:
-            var targetISBNUpdate = getISBN();
-            var targetBookUpdate = new FindBook_1.default().findBook(bookList, targetISBNUpdate);
-            if (targetBookUpdate.length === 0) {
-                printBookNotExisting(targetISBNUpdate);
+            var targetUpdatedISBN = getISBN();
+            var targetUpdatedBook = FindBook_1.default.findBook(bookList, targetUpdatedISBN);
+            if (targetUpdatedBook.length === 0) {
+                printBookNotExisting(targetUpdatedISBN);
             }
             else {
-                var newTitle = getTitle();
-                var newAuthor = getAuthor();
-                var newYear = getYear();
-                var bookUpdated = new UpdateBook_1.default().updateBook(bookList, targetISBNUpdate, newTitle, newAuthor, newYear);
-                console.log(bookUpdated);
+                var newTitle = getTitleOrAuthor('new title');
+                var newAuthor = getTitleOrAuthor('new author');
+                var newYear = getYear('new year');
+                var updatedBook = UpdateBook_1.default.updateBook(bookList, targetUpdatedISBN, newTitle, newAuthor, newYear);
+                console.log("The updated book is ".concat(JSON.stringify(updatedBook)));
             }
             break;
         case 4:
             var iSBNDelete = getISBN();
-            var targetBookDelete = new FindBook_1.default().findBook(bookList, iSBNDelete);
+            var targetBookDelete = FindBook_1.default.findBook(bookList, iSBNDelete);
             if (targetBookDelete.length === 0) {
                 printBookNotExisting(iSBNDelete);
             }
             else {
-                var bookDeleted = new DeleteBook_1.default();
-                bookDeleted.deleteBook(bookList, iSBNDelete);
-                console.log(targetBookDelete);
+                var deletedBook = DeleteBook_1.default.deleteBook(bookList, iSBNDelete);
+                console.log("The deleted book is ".concat(JSON.stringify(deletedBook)));
             }
             break;
         case 5:
@@ -78,12 +77,9 @@ function printBookNotExisting(iSBN) {
 function getISBN() {
     return Number(readline.question('Please input ISBN: '));
 }
-function getTitle() {
-    return readline.question('Please input title: ');
+function getTitleOrAuthor(text) {
+    return readline.question("Please input ".concat(text, ": "));
 }
-function getAuthor() {
-    return readline.question('Please input author: ');
-}
-function getYear() {
-    return Number(readline.question('Please input year: '));
+function getYear(text) {
+    return Number(readline.question("Please input ".concat(text, ": ")));
 }
