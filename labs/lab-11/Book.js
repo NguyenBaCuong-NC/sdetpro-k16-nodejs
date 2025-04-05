@@ -15,6 +15,15 @@ var Book = /** @class */ (function () {
     Book.prototype.getYear = function () {
         return this.year;
     };
+    Book.prototype.setAuthor = function (author) {
+        this.author = author;
+    };
+    Book.prototype.setTitle = function (title) {
+        this.title = title;
+    };
+    Book.prototype.setYear = function (year) {
+        this.year = year;
+    };
     return Book;
 }());
 exports.default = Book;

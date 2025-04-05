@@ -1,8 +1,8 @@
 export default abstract class Book {
     protected iSBN: number;
-    public title: string;
-    public author: string;
-    public year: number;
+    protected title: string;
+    protected author: string;
+    protected year: number;
 
     getISBN() {
         return this.iSBN;
@@ -18,6 +18,18 @@ export default abstract class Book {
 
     getYear() {
         return this.year;
+    }
+
+    setAuthor(author: string) {
+        this.author = author;
+    }
+
+    setTitle(title: string) {
+        this.title = title;
+    }
+
+    setYear(year: number) {
+        this.year = year;
     }
 
 }

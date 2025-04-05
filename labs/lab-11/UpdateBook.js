@@ -25,9 +25,9 @@ var UpdateBook = /** @class */ (function (_super) {
         for (var _i = 0, bookList_1 = bookList; _i < bookList_1.length; _i++) {
             var book = bookList_1[_i];
             if (book.getISBN() === iSBN) {
-                book.title = newTitle;
-                book.author = newAuthor;
-                book.year = newYear;
+                book.setTitle(newTitle);
+                book.setAuthor(newAuthor);
+                book.setYear(newYear);
                 return book;
             }
         }

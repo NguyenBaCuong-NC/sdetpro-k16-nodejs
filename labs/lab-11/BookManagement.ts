@@ -43,7 +43,8 @@ while (isStillAccess) {
                 const newTitle: string = getTitle();
                 const newAuthor: string = getAuthor();
                 const newYear: number = getYear();
-                const bookUpdated = new UpdateBook().updateBook(bookList, targetISBNUpdate, newTitle, newAuthor, newYear);
+                const bookUpdated = new UpdateBook();
+                bookUpdated.updateBook(bookList, targetISBNUpdate, newTitle, newAuthor, newYear);
                 console.log(bookUpdated);
             }
             break;
