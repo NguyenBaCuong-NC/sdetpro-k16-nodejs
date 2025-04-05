@@ -6,7 +6,7 @@ const savingAcc = new SavingAccount();
 const checkingAcc = new CheckingAccount();
 
 savingAcc.deposit(500);
-savingAcc.withdraw(500);
+savingAcc.withdraw(100);
 console.log(`Saving account balance: ${savingAcc.getBalance()}`);
 
 checkingAcc.deposit(500);
