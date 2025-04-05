@@ -13,18 +13,20 @@ while (isStillAccess) {
     switch (userOption) {
         case 0:
             isStillAccess = false;
+            console.log("See you again!");
             break;
         case 1:
-            var iSBNAdded = Number(readline.question('Please input ISBN: '));
-            var titleAdded = readline.question('Please input title: ');
-            var authorAdded = readline.question('Please input author: ');
-            var yearAdded = Number(readline.question('Please input year: '));
+            var iSBNAdded = getISBN();
+            var titleAdded = getTitle();
+            var authorAdded = getAuthor();
+            var yearAdded = getYear();
             var newBook = new AddNewBook_1.default(iSBNAdded, titleAdded, authorAdded, yearAdded);
             newBook.addNewBook(bookList, newBook);
             console.log(bookList);
             break;
         case 2:
-            var targetISBNFind = Number(readline.question('Please input ISBN: '));
+            var targetISBNFind = getISBN();
+            ;
             var targetBookFind = new FindBook_1.default().findBook(bookList, targetISBNFind);
             if (targetBookFind.length === 0) {
                 printBookNotExisting(targetISBNFind);
@@ -34,21 +36,21 @@ while (isStillAccess) {
             }
             break;
         case 3:
-            var targetISBNUpdate = Number(readline.question('Please input ISBN: '));
+            var targetISBNUpdate = getISBN();
             var targetBookUpdate = new FindBook_1.default().findBook(bookList, targetISBNUpdate);
             if (targetBookUpdate.length === 0) {
                 printBookNotExisting(targetISBNUpdate);
             }
             else {
-                var newTitle = readline.question('Please input new title: ');
-                var newAuthor = readline.question('Please input new author: ');
-                var newYear = Number(readline.question('Please input new year: '));
+                var newTitle = getTitle();
+                var newAuthor = getAuthor();
+                var newYear = getYear();
                 var bookUpdated = new UpdateBook_1.default().updateBook(bookList, targetISBNUpdate, newTitle, newAuthor, newYear);
                 console.log(bookUpdated);
             }
             break;
         case 4:
-            var iSBNDelete = Number(readline.question('Please input ISBN: '));
+            var iSBNDelete = getISBN();
             var targetBookDelete = new FindBook_1.default().findBook(bookList, iSBNDelete);
             if (targetBookDelete.length === 0) {
                 printBookNotExisting(iSBNDelete);
@@ -72,4 +74,16 @@ function printManu() {
 }
 function printBookNotExisting(iSBN) {
     console.log("Book with ISBN <".concat(iSBN, "> is not found!"));
+}
+function getISBN() {
+    return Number(readline.question('Please input ISBN: '));
+}
+function getTitle() {
+    return readline.question('Please input title: ');
+}
+function getAuthor() {
+    return readline.question('Please input author: ');
+}
+function getYear() {
+    return Number(readline.question('Please input year: '));
 }

@@ -14,18 +14,19 @@ while (isStillAccess) {
     switch (userOption) {
         case 0:
             isStillAccess = false;
+            console.log("See you again!");
             break;
         case 1:
-            const iSBNAdded: number = Number(readline.question('Please input ISBN: '));
-            const titleAdded: string = readline.question('Please input title: ');
-            const authorAdded: string = readline.question('Please input author: ');
-            const yearAdded: number = Number(readline.question('Please input year: '));
+            const iSBNAdded: number = getISBN();
+            const titleAdded: string = getTitle();
+            const authorAdded: string = getAuthor();
+            const yearAdded: number = getYear();
             const newBook = new AddNewBook(iSBNAdded, titleAdded, authorAdded, yearAdded);
             newBook.addNewBook(bookList, newBook);
             console.log(bookList);
             break;
         case 2:
-            const targetISBNFind: number = Number(readline.question('Please input ISBN: '));
+            const targetISBNFind: number = getISBN();;
             const targetBookFind = new FindBook().findBook(bookList, targetISBNFind);
             if (targetBookFind.length === 0) {
                 printBookNotExisting(targetISBNFind);
@@ -34,20 +35,20 @@ while (isStillAccess) {
             }
             break;
         case 3:
-            const targetISBNUpdate: number = Number(readline.question('Please input ISBN: '));
+            const targetISBNUpdate: number = getISBN();
             const targetBookUpdate = new FindBook().findBook(bookList, targetISBNUpdate);
             if (targetBookUpdate.length === 0) {
                 printBookNotExisting(targetISBNUpdate);
             } else {
-                const newTitle: string = readline.question('Please input new title: ');
-                const newAuthor: string = readline.question('Please input new author: ');
-                const newYear: number = Number(readline.question('Please input new year: '));
+                const newTitle: string = getTitle();
+                const newAuthor: string = getAuthor();
+                const newYear: number = getYear();
                 const bookUpdated = new UpdateBook().updateBook(bookList, targetISBNUpdate, newTitle, newAuthor, newYear);
                 console.log(bookUpdated);
             }
             break;
         case 4:
-            const iSBNDelete: number = Number(readline.question('Please input ISBN: '));
+            const iSBNDelete: number = getISBN();
             const targetBookDelete = new FindBook().findBook(bookList, iSBNDelete);
             if (targetBookDelete.length === 0) {
                 printBookNotExisting(iSBNDelete);
@@ -79,4 +80,20 @@ function printManu() {
 
 function printBookNotExisting(iSBN: number) {
     console.log(`Book with ISBN <${iSBN}> is not found!`);
+}
+
+function getISBN() {
+    return Number(readline.question('Please input ISBN: '));
+}
+
+function getTitle() {
+    return readline.question('Please input title: ');
+}
+
+function getAuthor() {
+    return readline.question('Please input author: ');
+}
+
+function getYear() {
+    return Number(readline.question('Please input year: '));
 }
