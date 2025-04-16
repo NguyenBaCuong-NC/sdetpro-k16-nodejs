@@ -5,7 +5,5 @@
 // var even = numbers.filter(function (num) { return num === 7; });
 // console.log(even); // 👉 [2, 4, 6]
 
-let array = [];
-console.log(array.length);
 
 
